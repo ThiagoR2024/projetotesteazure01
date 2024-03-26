@@ -8,6 +8,14 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Assinatura de Plataformas MSDN(4b39ce09-1141-4fe9-bdf0-1f71d77a438f)'
+    appType: 'webApp'
+    WebAppName: 'appasg'
+    VirtualApplication: 'teste01devops'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 steps:
 - task: ArchiveFiles@2
